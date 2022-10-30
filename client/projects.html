@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="index.css" />
+        <title>spencer pope</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/"><h3>spencer pope</h3></a></li>
+                    <li><a class="active" href="/projects.html">projects</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="tabs">
+            <button id="language-flash-btn" class="tab">language-flash</button>
+            <button id="test-second-btn" class="tab">test-second</button>
+        </div>
+        <table border="2">
+            <thead>
+                <tr id="thead">
+                    <th style="width: 25%">info</th>
+                    <th style="width: 75%">demo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="language-flash">
+                    <td>
+                        <ul>
+                            <li><a href="https://github.com/spope851/language-flash">github</a></li>
+                            <li><a href="https://twitter.com/s_pop3/status/1547753107668381696">tweet storm</a></li>
+                            <li>ui: <a href="https://svelte.dev">svelte</a></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <div id="lang-flash"></div>
+                    </td>
+                </tr>
+                <tr id="test-second">
+                    <td>
+                        example
+                    </td>
+                    <td>
+                        sick second app with a <button>button</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <style>
+            @import url('./projects/language-flash-svelte/dist/bundle.css');
+            .tab {
+                border-radius: 10px 10px 0 0;
+                padding: 10px;
+                float: left;
+            }
+            .tabs {
+                overflow: hidden;
+                margin-bottom: -2px;
+            }
+            table {
+                width: 100%;
+                border-collapse:collapse;
+            }
+            th {
+                padding: 10px;
+            }
+            td:first-child {
+                display: contents;
+            }
+        </style>
+        <script src="./projects/projects.js"></script>
+        <script src="./projects/language-flash-svelte/dist/bundle.js"></script>
+        <script>
+            const target = document.getElementById('lang-flash')
+            new LanguageFlash({
+                target
+            })
+        </script>
+    </body>
+</html>
