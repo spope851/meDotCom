@@ -8,49 +8,59 @@
         <title>spencer pope</title>
     </head>
     <body>
-        <header>
-            <nav>
+        <div id="wrapper">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="/"><h3>spencer pope</h3></a></li>
+                        <li><a class="active" href="/projects.html">projects</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="content">
+                <div class="tabs">
+                    <button id="language-flash-btn" class="tab">language-flash</button>
+                    <button id="test-second-btn" class="tab">test-second</button>
+                </div>
+                <table border="2">
+                    <thead>
+                        <tr id="thead">
+                            <th style="width: 25%">info</th>
+                            <th style="width: 75%">demo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="language-flash">
+                            <td>
+                                <ul>
+                                    <li><a href="https://github.com/spope851/language-flash" target="_blank">github</a></li>
+                                    <li><a href="https://twitter.com/s_pop3/status/1547753107668381696" target="_blank">tweet storm</a></li>
+                                    <li>ui: <a href="https://svelte.dev" target="_blank">svelte</a></li>
+                                </ul>
+                            </td>
+                            <td>
+                                <div id="lang-flash"></div>
+                            </td>
+                        </tr>
+                        <tr id="test-second">
+                            <td>
+                                example
+                            </td>
+                            <td>
+                                sick second app with a <button>button</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer>
                 <ul>
-                    <li><a href="/"><h3>spencer pope</h3></a></li>
-                    <li><a class="active" href="/projects.html">projects</a></li>
+                    <li><a href="https://github.com/spope851" target="_blank"><img src="./assets/images/github.svg" alt="github"/></a></li>
+                    <li><a href="https://twitter.com/s_pop3" target="_blank"><img src="./assets/images/twitter.svg" alt="twitter"/></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN00Qt1TBZPoDQAvj9t-Dtw" target="_blank"><img src="./assets/images/youtube.svg" alt="youtube"/></a></li>
                 </ul>
-            </nav>
-        </header>
-
-        <div class="tabs">
-            <button id="language-flash-btn" class="tab">language-flash</button>
-            <button id="test-second-btn" class="tab">test-second</button>
+            </footer>
         </div>
-        <table border="2">
-            <thead>
-                <tr id="thead">
-                    <th style="width: 25%">info</th>
-                    <th style="width: 75%">demo</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr id="language-flash">
-                    <td>
-                        <ul>
-                            <li><a href="https://github.com/spope851/language-flash">github</a></li>
-                            <li><a href="https://twitter.com/s_pop3/status/1547753107668381696">tweet storm</a></li>
-                            <li>ui: <a href="https://svelte.dev">svelte</a></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <div id="lang-flash"></div>
-                    </td>
-                </tr>
-                <tr id="test-second">
-                    <td>
-                        example
-                    </td>
-                    <td>
-                        sick second app with a <button>button</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
         <style>
             @import url('./projects/language-flash-svelte/dist/bundle.css');
             .tab {

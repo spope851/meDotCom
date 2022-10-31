@@ -7,15 +7,36 @@
         <link rel="stylesheet" href="index.css" />
         <title>spencer pope</title>
     </head>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <body>
-        <header>
-            <nav>
+        <div id="wrapper">
+            <header>
+                <nav>
+                    <ul>
+                        <li><a class="active" href="/"><h3>spencer pope</h3></a></li>
+                        <li><a href="/projects.html">projects</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div id="react-tag"></div>
+            <footer>
                 <ul>
-                    <li><a class="active" href="/"><h3>spencer pope</h3></a></li>
-                    <li><a href="/projects.html">projects</a></li>
+                    <li><a href="https://github.com/spope851" target="_blank"><img src="./assets/images/github.svg" alt="github"/></a></li>
+                    <li><a href="https://twitter.com/s_pop3" target="_blank"><img src="./assets/images/twitter.svg" alt="twitter"/></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN00Qt1TBZPoDQAvj9t-Dtw" target="_blank"><img src="./assets/images/youtube.svg" alt="youtube"/></a></li>
                 </ul>
-            </nav>
-        </header>
+            </footer>
+        </div>
         <script src="index.js"></script>
+        <script type="text/babel" src="./twitter-feed.js"></script>
+        <script type="text/babel">
+            const container = document.getElementById('react-tag');
+            const root = ReactDOM.createRoot(container);
+            root.render(<TwitterFeed />);
+        </script>
     </body>
 </html>
