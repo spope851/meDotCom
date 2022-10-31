@@ -11,7 +11,7 @@ import fetch from 'node-fetch';
 app.get('/getTweets', async (req, res) => {
     console.log('GET tweets  ', req.query)
     await fetch(
-        `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=s_pop3&count=10`,
+        `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=s_pop3&count=10&tweet_mode=extended`,
         {
         headers: {
             Authorization: `Bearer AAAAAAAAAAAAAAAAAAAAADj0RAEAAAAANbcQ43Jw27zlY4Hi6He4V7tVPNM%3DH0xIrAUbqSoihIZOuOpzMBatzgZ0JcgziECnosFmqIlcWr8Ycd`,
