@@ -4,9 +4,9 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="../index.css" />
         <title>spencer pope</title>
-        <link rel='icon' type='image/png' href='./assets/favicon.ico'>
+        <link rel='icon' type='image/png' href='../assets/favicon.ico'>
     </head>
     <body>
         <div id="wrapper">
@@ -14,7 +14,7 @@
                 <nav>
                     <ul>
                         <li><a href="/"><h3>spencer pope</h3></a></li>
-                        <li><a class="active" href="/projects.html">projects</a></li>
+                        <li><a class="active" href="/projects">projects</a></li>
                     </ul>
                 </nav>
             </header>
@@ -56,15 +56,15 @@
             </div>
             <footer>
                 <ul>
-                    <li><a href="https://github.com/spope851" target="_blank"><img src="./assets/images/github.svg" alt="github"/></a></li>
-                    <li><a href="https://twitter.com/s_pop3" target="_blank"><img src="./assets/images/twitter.svg" alt="twitter"/></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCN00Qt1TBZPoDQAvj9t-Dtw" target="_blank"><img src="./assets/images/youtube.svg" alt="youtube"/></a></li>
+                    <li><a href="https://github.com/spope851" target="_blank"><img src="../assets/images/github.svg" alt="github"/></a></li>
+                    <li><a href="https://twitter.com/s_pop3" target="_blank"><img src="../assets/images/twitter.svg" alt="twitter"/></a></li>
+                    <li><a href="https://www.youtube.com/channel/UCN00Qt1TBZPoDQAvj9t-Dtw" target="_blank"><img src="../assets/images/youtube.svg" alt="youtube"/></a></li>
                 </ul>
                 <div><span>© 2022 Spencer Pope</span></div>
             </footer>
         </div>
         <style>
-            @import url('./projects/language-flash-svelte/dist/bundle.css');
+            @import url('./language-flash-svelte/dist/bundle.css');
             .tab {
                 border-radius: 10px 10px 0 0;
                 padding: 10px;
@@ -88,8 +88,8 @@
                 background-color: #ccc;
             }
         </style>
-        <script src="./projects/projects.js"></script>
-        <script src="./projects/language-flash-svelte/dist/bundle.js"></script>
+        <script src="./projects.js"></script>
+        <script src="./language-flash-svelte/dist/bundle.js"></script>
         <script>
             const target = document.getElementById('lang-flash')
             new LanguageFlash({
