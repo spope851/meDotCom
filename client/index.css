@@ -86,7 +86,8 @@ html, body {
 }
 
 #react-tag {
-    flex: 1
+    flex: 1;
+    display: flex;
 }
 
 .content {

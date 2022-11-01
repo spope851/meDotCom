@@ -12,7 +12,7 @@ class TwitterFeed extends React.Component {
     render () {
         const { tweets } = this.state
         return tweets.length 
-            ? (<div>
+            ? (<div style={{ overflow: 'auto', maxHeight: 'calc(100vh - 136.5px)' }}>
                 {tweets.map(tweet => {
                     const rt = !!tweet.retweeted_status
                     const text = rt
@@ -61,7 +61,7 @@ class TwitterFeed extends React.Component {
                                 border: 'solid #999',
                                 margin: 10,
                                 borderRadius: 5,
-                                padding: 10
+                                padding: 10,
                             }}
                             onClick={() => window.open(`https://twitter.com/${tweet.user.screen_name}/status/${tweet.id_str}`, '_blank').focus()}
                             onMouseOver={() => document.getElementById(`tweet-${tweet.id}`).classList.add('tweet-hover')}
@@ -80,7 +80,14 @@ class TwitterFeed extends React.Component {
                 )})}
             </div>) 
             : (
-                <div style={{ width: '100%', textAlign: 'center', marginTop: 10 }}>
+                <div
+                    style={{ 
+                        width: 400,
+                        textAlign: 'center',
+                        margin: 10,
+                        padding: 10,
+                        border: 'dotted #aaa'
+                    }}>
                     <span>loading tweets...</span>
                 </div>
             )
