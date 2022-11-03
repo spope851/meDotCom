@@ -37,10 +37,10 @@ class TwitterFeed extends React.Component {
                         : tweet.created_at
                     const entities = rt
                         ? tweet.retweeted_status.entities && tweet.retweeted_status.entities.urls.map(entity => (
-                            <p><a href={entity.url}>{entity.display_url}</a></p>
+                            <p><a href={entity.url} style={{ overflowWrap: 'break-word' }}>{entity.display_url}</a></p>
                         ))
                         : tweet.entities && tweet.entities.urls.map(entity => (
-                            <p><a href={entity.url}>{entity.display_url}</a></p>
+                            <p><a href={entity.url} style={{ overflowWrap: 'break-word' }}>{entity.display_url}</a></p>
                         ))
                     const extendedEntities = rt
                         ? tweet.retweeted_status.extended_entities && tweet.retweeted_status.extended_entities.media.map((entity, _idx, arr) => (
@@ -57,7 +57,7 @@ class TwitterFeed extends React.Component {
                             key={tweet.id}
                             id={`tweet-${tweet.id}`}
                             style={{ 
-                                width: 400,
+                                width: '30%',
                                 border: 'solid #999',
                                 margin: 10,
                                 borderRadius: 5,

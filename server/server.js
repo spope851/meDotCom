@@ -1,12 +1,24 @@
 import express from 'express';
 const app = express()
 import fetch from 'node-fetch';
+import * as keys from './keys.js';
+import pkg from 'pg';
 
-// app.get('/getall', async (req, res) => {
-//     console.log('GET ...doing some work...  ', req.query)
-//     const data = await pool.query(`SELECT * FROM unreal_data ${req.query.search && `WHERE data LIKE '%${req.query.search}%'`}`)
-//     res.status(200).send(data.rows)
-// })
+const { Pool } = pkg;
+
+const pool = new Pool({
+  user: keys.pgUser,
+  host: keys.pgHost,
+  database: keys.pgDatabase,
+  password: keys.pgPassword,
+  port: keys.pgPort
+});
+
+app.get('/getMandarin', async (req, res) => {
+    console.log('GET mandarin  ', req.query)
+    const data = await pool.query(`SELECT * FROM mandarin;`)
+    res.status(200).send(data.rows)
+})
 
 app.get('/getTweets', async (req, res) => {
     console.log('GET tweets  ', req.query)

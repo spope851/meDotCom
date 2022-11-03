@@ -1,3 +1,5 @@
 .DS_Store
 */node_modules
 /client/projects/language-flash-svelte/dist
+database.ini
+/postgres-data

@@ -1,9 +1,13 @@
 version: "3"
 services:
   postgres:
-    image: "postgres:latest"
-    environment:
-      - POSTGRES_PASSWORD=postgres_password
+    build: 
+      dockerfile: Dockerfile
+      context: ./postgres
+    ports:
+      - "5438:5432"
+    volumes: 
+    - ./postgres-data:/var/lib/postgresql/data
   client:
     depends_on:
       - api
@@ -12,16 +16,6 @@ services:
       context: ./client
     ports:
       - "80:80"
-    # volumes:
-    #   - ./client:/etc/nginx/html
-  # nginx:
-  #   depends_on:
-  #       - client
-    #   - api
-    # restart: always
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: ./nginx
   api:
     depends_on:
       - postgres
