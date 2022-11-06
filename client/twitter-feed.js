@@ -1,18 +1,28 @@
 class TwitterFeed extends React.Component {
     constructor () {
         super()
-        this.state = { tweets: [] }
+        this.state = { 
+            tweets: [],
+            count: 10,
+        }
     }
 
     componentDidMount = async () => {
-        const tweets = await fetch('api/getTweets').then(res => res.json())
+        const tweets = await fetch(`api/getTweets?count=${this.state.count}`).then(res => res.json())
         this.setState({ tweets })
     }
 
     render () {
         const { tweets } = this.state
         return tweets.length 
-            ? (<div style={{ overflow: 'auto', maxHeight: 'calc(100vh - 136.5px)' }}>
+            ? (<div 
+                style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    flex: 1,
+                    overflow: 'auto',
+                    maxHeight: 'calc(100vh - 136.5px)'
+                }}>
                 {tweets.map(tweet => {
                     const rt = !!tweet.retweeted_status
                     const text = rt
@@ -37,17 +47,17 @@ class TwitterFeed extends React.Component {
                         : tweet.created_at
                     const entities = rt
                         ? tweet.retweeted_status.entities && tweet.retweeted_status.entities.urls.map(entity => (
-                            <p><a href={entity.url} style={{ overflowWrap: 'break-word' }}>{entity.display_url}</a></p>
+                            <p key={entity.url}><a href={entity.url} style={{ overflowWrap: 'break-word' }}>{entity.display_url}</a></p>
                         ))
                         : tweet.entities && tweet.entities.urls.map(entity => (
-                            <p><a href={entity.url} style={{ overflowWrap: 'break-word' }}>{entity.display_url}</a></p>
+                            <p key={entity.url}><a href={entity.url} style={{ overflowWrap: 'break-word' }}>{entity.display_url}</a></p>
                         ))
                     const extendedEntities = rt
                         ? tweet.retweeted_status.extended_entities && tweet.retweeted_status.extended_entities.media.map((entity, _idx, arr) => (
-                            <img src={entity.media_url_https} width={`${100 / arr.length}%`} style={{ borderRadius: 10 }} alt="image"/>
+                            <img key={entity.id} src={entity.media_url_https} width={`${100 / arr.length}%`} style={{ borderRadius: 10 }} alt="image"/>
                         ))
                         : tweet.extended_entities && tweet.extended_entities.media.map((entity, _idx, arr) => (
-                            <img src={entity.media_url_https} alt="image" width={`${100 / arr.length}%`} style={{ borderRadius: 10 }} />
+                            <img key={entity.id} src={entity.media_url_https} alt="image" width={`${100 / arr.length}%`} style={{ borderRadius: 10 }} />
                         ))
                     const favorites = rt
                         ? tweet.retweeted_status.favorite_count
@@ -57,7 +67,6 @@ class TwitterFeed extends React.Component {
                             key={tweet.id}
                             id={`tweet-${tweet.id}`}
                             style={{ 
-                                width: '30%',
                                 border: 'solid #999',
                                 margin: 10,
                                 borderRadius: 5,
@@ -78,15 +87,34 @@ class TwitterFeed extends React.Component {
                             {infoLink}
                         </div>
                 )})}
+                <button
+                    id="tweet-btn"
+                    onClick={async () => this.setState({
+                        count: this.state.count + 10,
+                        tweets: await fetch(`api/getTweets?count=${this.state.count + 10}`).then(res => res.json())
+                    })}
+                    onMouseOver={() => document.getElementById(`tweet-btn`).classList.add('tweet-hover')}
+                    onMouseLeave={() => document.getElementById(`tweet-btn`).classList.remove('tweet-hover')}
+                    style={{
+                        borderColor: "#1DA1F2",
+                        color: "#1DA1F2",
+                        borderRadius: "15px",
+                        padding: "10px",
+                        margin: "10px 20px 20px"
+                    }}>
+                    load more
+                </button>
             </div>) 
             : (
                 <div
                     style={{ 
-                        width: 400,
                         textAlign: 'center',
                         margin: 10,
                         padding: 10,
-                        border: 'dotted #aaa'
+                        border: 'dotted #aaa',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        flex: 1,
                     }}>
                     <span>loading tweets...</span>
                 </div>

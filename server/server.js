@@ -3,7 +3,7 @@ const app = express()
 import fetch from 'node-fetch';
 import * as keys from './keys.js';
 import pkg from 'pg';
-
+delete pkg.native;
 const { Pool } = pkg;
 
 const pool = new Pool({
@@ -14,6 +14,12 @@ const pool = new Pool({
   port: keys.pgPort
 });
 
+app.get('/getContent', async (req, res) => {
+    console.log('GET content  ', req.query)
+    const data = await pool.query(`SELECT * FROM content ORDER BY id DESC LIMIT 1;`)
+    res.status(200).send(data.rows[0])
+})
+
 app.get('/getMandarin', async (req, res) => {
     console.log('GET mandarin  ', req.query)
     const data = await pool.query(`SELECT * FROM mandarin;`)
@@ -23,7 +29,7 @@ app.get('/getMandarin', async (req, res) => {
 app.get('/getTweets', async (req, res) => {
     console.log('GET tweets  ', req.query)
     await fetch(
-        `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=s_pop3&count=10&tweet_mode=extended`,
+        `https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=s_pop3&count=${req.query.count}&tweet_mode=extended`,
         {
         headers: {
             Authorization: `Bearer AAAAAAAAAAAAAAAAAAAAADj0RAEAAAAANbcQ43Jw27zlY4Hi6He4V7tVPNM%3DH0xIrAUbqSoihIZOuOpzMBatzgZ0JcgziECnosFmqIlcWr8Ycd`,

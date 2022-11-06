@@ -7,6 +7,13 @@
         <link rel="stylesheet" href="index.css" />
         <title>spencer pope</title>
         <link rel='icon' type='image/png' href='./assets/favicon.ico'>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script type="text/javascript">
+            (function() {
+                // https://dashboard.emailjs.com/admin/account
+                emailjs.init('owxwQWa3Ry2FxkhKz');
+            })();
+        </script>
     </head>
     <!-- Load React. -->
     <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
@@ -23,22 +30,55 @@
                     </ul>
                 </nav>
             </header>
-            <div id="react-tag"></div>
+            <div id="page-content">
+                <div id="twitter-feed-wrapper"></div>
+                <div id="right-content-wrapper">
+                    <div id="top-right-wrapper">
+                        <div id="whats-new-wrapper">
+                            <h2>check out my latest post</h2>
+                            <div id="whats-new"></div>
+                        </div>
+                        <div id="projects-link-wrapper">
+                            <h2>see what else I'm working on</h2>
+                            <div id="projects-link-btn">
+                                click here!
+                            </div>
+                        </div>
+                    </div>
+                    <div id="contact-form-wrapper">
+                        <form id="contact-form">
+                            <h4>I want to hear from you! Send me an email ❤</h4>
+                            <input type="hidden" name="contact_number">
+                            <label>Name</label>
+                            <input type="text" name="user_name">
+                            <label>Email</label>
+                            <input type="email" name="user_email">
+                            <label>Message</label>
+                            <textarea name="message"></textarea>
+                            <input style="margin-top: 20px; width: 100px;" type="submit" value="Send">
+                        </form>
+                    </div>
+                </div>
+            </div>
             <footer>
                 <ul>
                     <li><a href="https://github.com/spope851" target="_blank"><img src="./assets/images/github.svg" alt="github"/></a></li>
                     <li><a href="https://twitter.com/s_pop3" target="_blank"><img src="./assets/images/twitter.svg" alt="twitter"/></a></li>
-                    <li><a href="https://www.youtube.com/channel/UCN00Qt1TBZPoDQAvj9t-Dtw" target="_blank"><img src="./assets/images/youtube.svg" alt="youtube"/></a></li>
+                    <li><a href="https://www.youtube.com/@spope" target="_blank"><img src="./assets/images/youtube.svg" alt="youtube"/></a></li>
                 </ul>
                 <div><span>© 2022 Spencer Pope</span></div>
             </footer>
         </div>
         <script src="index.js"></script>
         <script type="text/babel" src="./twitter-feed.js"></script>
+        <script type="text/babel" src="./whats-new.js"></script>
         <script type="text/babel">
-            const container = document.getElementById('react-tag');
-            const root = ReactDOM.createRoot(container);
-            root.render(<TwitterFeed />);
+            const whatsNew = document.getElementById('whats-new');
+            const whatsNewRoot = ReactDOM.createRoot(whatsNew);
+            whatsNewRoot.render(<WhatsNew />);
+            const twitterFeed = document.getElementById('twitter-feed-wrapper');
+            const twitterFeedRoot = ReactDOM.createRoot(twitterFeed);
+            twitterFeedRoot.render(<TwitterFeed />);
         </script>
     </body>
 </html>

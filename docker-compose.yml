@@ -1,9 +1,9 @@
 version: "3"
 services:
-  postgres:
+  database:
     build: 
       dockerfile: Dockerfile
-      context: ./postgres
+      context: ./database
     ports:
       - "5438:5432"
     volumes: 
@@ -16,9 +16,11 @@ services:
       context: ./client
     ports:
       - "80:80"
+    volumes:
+      - ./client:/etc/nginx/html
   api:
     depends_on:
-      - postgres
+      - database
     build:
       dockerfile: Dockerfile
       context: "./server"
@@ -27,7 +29,7 @@ services:
       - ./server:/app
     environment:
       - PGUSER=postgres
-      - PGHOST=postgres
+      - PGHOST=database
       - PGDATABASE=postgres
-      - PGPASSWORD=postgres_password
+      - PGPASSWORD=password
       - PGPORT=5432

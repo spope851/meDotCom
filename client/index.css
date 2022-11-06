@@ -85,11 +85,6 @@ html, body {
     min-height: 100%;
 }
 
-#react-tag {
-    flex: 1;
-    display: flex;
-}
-
 .content {
     margin: 10px;
     flex: 1;
@@ -98,4 +93,80 @@ html, body {
 .tweet-hover {
     background-color: #ddd;
     cursor: pointer;
+}
+
+#page-content {
+    display: flex;
+    flex: 1;
+}
+
+#twitter-feed-wrapper {
+    flex: 1 1 30%;
+    display: flex;
+    align-self: stretch;
+}
+
+#right-content-wrapper {
+    display: flex;
+    flex: 1 1 70%;
+    flex-direction: column;
+}
+
+#contact-form-wrapper {
+    display: flex;
+    flex: 1 1 100%;
+}
+
+#contact-form {
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    flex: 1;
+    padding: 50px;
+    border: solid #ccc;
+    border-radius: 5px;
+    margin: 50px 50px 0 50px;
+}
+
+#whats-new-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 30px 10px 50px;
+    text-align: center;
+}
+
+#whats-new {
+    display: flex;
+    align-items: stretch;
+    flex: 1 1;
+}
+
+#projects-link-btn {
+    border: solid #aaa;
+    border-radius: 15px;
+    padding: 25px;
+    margin: 25px;
+}
+
+#projects-link-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 10px 50px 10px 30px;
+    text-align: center;
+}
+
+#top-right-wrapper {
+    display: flex;
+}
+
+div h4 {
+    margin-top: 0;
 }
