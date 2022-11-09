@@ -9,7 +9,7 @@ create table if not exists mandarin (
 create table if not exists content (
     id serial primary key,
     title varchar (255) not null,
-    img varchar (255) not null,
+    img varchar (255),
     domain varchar (255) not null,
     summary varchar (2048) not null
 );

@@ -3,3 +3,6 @@
 /client/projects/language-flash-svelte/dist
 database.ini
 /postgres-data
+*.js.map
+*.css.map
+*.LICENSE.txt

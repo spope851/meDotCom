@@ -20,7 +20,7 @@ class WhatsNew extends React.Component {
                     onMouseOver={() => document.getElementById(`link-preview`).classList.add('tweet-hover')}
                     onMouseLeave={() => document.getElementById(`link-preview`).classList.remove('tweet-hover')}
                 >
-                    <img style={{ objectFit: 'cover', height: 150, width: 150, borderRadius: '15px 0 0 15px' }} src={content.img} alt="image" />
+                    <img style={{ objectFit: 'cover', borderRadius: '15px 0 0 15px' }} src={content.img || './assets/favicon.ico'} alt="image" />
                     <div style={{ padding: '20px 5px 0 10px', textAlign: 'left' }}>
                         <p
                             style={{
@@ -29,13 +29,20 @@ class WhatsNew extends React.Component {
                         <p
                             style={{
                                 color: '#777',
-                                margin: 0
+                                margin: 0,
+                                fontSize: '14px'
                             }}>{content.summary}</p>
                         <a
                             href={content.domain}
                             style={{
                                 textDecoration: 'none',
-                                color: '#777'
+                                color: '#aaa',
+                                fontSize: '14px',
+                                display: 'inline-block',
+                                textOverflow: 'ellipsis',
+                                overflow: 'hidden',
+                                whiteSpace: 'nowrap',
+                                maxWidth: 300
                             }}><img width="15px" src="./assets/images/link.svg" alt="link" />{content.domain.split('://')[1]}</a>
                     </div>
                 </div>

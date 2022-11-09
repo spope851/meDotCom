@@ -155,7 +155,7 @@ html, body {
 #projects-link-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 1;
+    flex: 1 1;
     border: solid #ccc;
     border-radius: 5px;
     padding: 20px;
@@ -169,4 +169,9 @@ html, body {
 
 div h4 {
     margin-top: 0;
+}
+
+.app-description, #cube-solver {
+    max-height: calc(100vh - 270px);
+    overflow: auto;
 }
