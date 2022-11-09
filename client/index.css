@@ -119,13 +119,27 @@ html, body {
 
 #contact-form {
     display: flex;
-    align-self: flex-start;
+    align-self: stretch;
     flex-direction: column;
     flex: 1;
-    padding: 50px;
+    padding: 20px 50px;
     border: solid #ccc;
     border-radius: 5px;
-    margin: 50px 50px 0 50px;
+    margin: 50px 40px 50px 50px;
+    justify-content: space-between;
+    text-align: center;
+}
+
+#contact-form label {
+    text-align: left;
+}
+
+#contact-form input {
+    width: 40%;
+}
+
+#contact-form textarea {
+    height: 80px;
 }
 
 #whats-new-wrapper {
@@ -135,21 +149,23 @@ html, body {
     border: solid #ccc;
     border-radius: 5px;
     padding: 20px;
-    margin: 10px 30px 10px 50px;
+    margin: 50px 25px 0 50px;
     text-align: center;
+    justify-content: space-between;
 }
 
 #whats-new {
     display: flex;
     align-items: stretch;
     flex: 1 1;
+    margin: 0 30px;
 }
 
 #projects-link-btn {
     border: solid #aaa;
     border-radius: 15px;
     padding: 25px;
-    margin: 25px;
+    margin: 0 30px;
 }
 
 #projects-link-wrapper {
@@ -159,8 +175,9 @@ html, body {
     border: solid #ccc;
     border-radius: 5px;
     padding: 20px;
-    margin: 10px 50px 10px 30px;
+    margin: 50px 40px 0 25px;
     text-align: center;
+    justify-content: space-between;
 }
 
 #top-right-wrapper {

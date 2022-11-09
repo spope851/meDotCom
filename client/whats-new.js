@@ -20,15 +20,14 @@ class WhatsNew extends React.Component {
                     onMouseOver={() => document.getElementById(`link-preview`).classList.add('tweet-hover')}
                     onMouseLeave={() => document.getElementById(`link-preview`).classList.remove('tweet-hover')}
                 >
-                    <img style={{ objectFit: 'cover', borderRadius: '15px 0 0 15px' }} src={content.img || './assets/favicon.ico'} alt="image" />
-                    <div style={{ padding: '20px 5px 0 10px', textAlign: 'left' }}>
-                        <p
+                    <img style={{ objectFit: 'cover', borderRadius: '15px 0 0 15px', minWidth: 100 }} src={content.img || '/assets/favicon.ico'} alt="image" />
+                    <div style={{ padding: '20px 5px', textAlign: 'left', maxWidth: 300 }}>
+                        <strong
                             style={{
                                 margin: 0
-                            }}>{content.title}</p>
+                            }}>{content.title}</strong>
                         <p
                             style={{
-                                color: '#777',
                                 margin: 0,
                                 fontSize: '14px'
                             }}>{content.summary}</p>
@@ -42,8 +41,8 @@ class WhatsNew extends React.Component {
                                 textOverflow: 'ellipsis',
                                 overflow: 'hidden',
                                 whiteSpace: 'nowrap',
-                                maxWidth: 300
-                            }}><img width="15px" src="./assets/images/link.svg" alt="link" />{content.domain.split('://')[1]}</a>
+                                maxWidth: 'inherit'
+                            }}><img width="15px" src="/assets/images/link.svg" alt="link" />{content.domain.split('://')[1]}</a>
                     </div>
                 </div>
             ) 

@@ -28,10 +28,10 @@ class TwitterFeed extends React.Component {
                     const text = rt
                         ? tweet.retweeted_status.full_text.split('https://')[0]
                         : tweet.full_text.split('https://')[0]
-                    const tweetImg = <img src="./assets/images/tweet.svg" style={{ float: 'right' }} />
+                    const tweetImg = <img src="/assets/images/tweet.svg" style={{ float: 'right' }} />
                     const infoLink = 
                         <a target="_blank" style={{ float: 'right' }} href="https://help.twitter.com/en/twitter-for-websites-ads-info-and-privacy?ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3As_pop3%7Ctwcon%5Es1">
-                            <img src="./assets/images/info.svg" alt="info"/>
+                            <img src="/assets/images/info.svg" alt="info"/>
                         </a>
                     const profileImg = rt
                         ? tweet.retweeted_status.user.profile_image_url_https
@@ -77,7 +77,7 @@ class TwitterFeed extends React.Component {
                             onMouseLeave={() => document.getElementById(`tweet-${tweet.id}`).classList.remove('tweet-hover')}
                         >
                             {tweetImg}
-                            {rt && <p style={{ margin: '0 0 10px 0' }}><img src="./assets/images/retweet.png" width={15} alt="retweet" />{`${tweet.user.name} retweeted`}</p>}
+                            {rt && <p style={{ margin: '0 0 10px 0' }}><img src="/assets/images/retweet.png" width={15} alt="retweet" />{`${tweet.user.name} retweeted`}</p>}
                             <img src={profileImg} alt="profile image" style={{ borderRadius: '25px' }} />
                             <span><strong>{name}</strong>{` @${screenName} - ${new Date(created).toLocaleDateString()}`}</span>
                             <p>{text}</p>
