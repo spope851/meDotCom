@@ -1,3 +1,5 @@
+const sendEmailBtn = document.getElementById('send-email')
+
 window.onload = function() {
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -7,8 +9,10 @@ window.onload = function() {
         emailjs.sendForm('service_q5mctvg', 'template_ebpu5h9', this)
             .then(function() {
                 console.log('SUCCESS!');
+                sendEmailBtn.value = 'sent!'
             }, function(error) {
                 console.log('FAILED...', error);
+                sendEmailBtn.innerHTML = 'failed!'
             });
     });
 }
