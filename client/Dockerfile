@@ -1,4 +1,5 @@
 FROM node:alpine as builder
+RUN apk --no-cache add git
 WORKDIR /app
 COPY ./projects/language-flash-svelte ./projects/language-flash-svelte/
 WORKDIR /app/projects/language-flash-svelte
