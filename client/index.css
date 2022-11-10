@@ -188,7 +188,7 @@ div h4 {
     margin-top: 0;
 }
 
-.app-description, #cube-solver {
+.app-description, #react-cube-solver {
     max-height: calc(100vh - 270px);
     overflow: auto;
 }

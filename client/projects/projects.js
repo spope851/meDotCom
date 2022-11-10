@@ -1,22 +1,22 @@
 const langFlashBtn = document.getElementById('language-flash-btn')
 const langFlashRow = document.getElementById('language-flash')
 
-const secondTestBtn = document.getElementById('test-second-btn')
-const secondTestRow = document.getElementById('test-second')
+const cubeSolverBtn = document.getElementById('cube-solver-btn')
+const cubeSolverRow = document.getElementById('cube-solver')
 
 langFlashBtn.addEventListener('click', () => {
     langFlashRow.style = 'display: table-row;'
-    secondTestRow.style = 'display: none;'
+    cubeSolverRow.style = 'display: none;'
     document.location.hash = 'language-flash'
     langFlashBtn.classList.add('active')
-    secondTestBtn.classList.remove('active')
+    cubeSolverBtn.classList.remove('active')
 })
 
-secondTestBtn.addEventListener('click', () => {
-    secondTestRow.style = 'display: table-row;'
+cubeSolverBtn.addEventListener('click', () => {
+    cubeSolverRow.style = 'display: table-row;'
     langFlashRow.style = 'display: none;'
-    document.location.hash = 'test-second'
-    secondTestBtn.classList.add('active')
+    document.location.hash = 'cube-solver'
+    cubeSolverBtn.classList.add('active')
     langFlashBtn.classList.remove('active')
 })
 
