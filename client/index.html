@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="/index.css" />
         <title>spencer pope</title>
         <link rel='icon' type='image/png' href='/assets/favicon.ico'>
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -69,17 +69,10 @@
                 </ul>
                 <div><span>© 2022 Spencer Pope</span></div>
             </footer>
+            </div>
         </div>
+        <!-- react apps -->
+        <script src="/react-apps/home/js/main.js"></script>
         <script src="index.js"></script>
-        <script type="text/babel" src="./twitter-feed.js"></script>
-        <script type="text/babel" src="./whats-new.js"></script>
-        <script type="text/babel">
-            const whatsNew = document.getElementById('whats-new');
-            const whatsNewRoot = ReactDOM.createRoot(whatsNew);
-            whatsNewRoot.render(<WhatsNew />);
-            const twitterFeed = document.getElementById('twitter-feed-wrapper');
-            const twitterFeedRoot = ReactDOM.createRoot(twitterFeed);
-            twitterFeedRoot.render(<TwitterFeed />);
-        </script>
     </body>
 </html>
