@@ -101,7 +101,7 @@
             </footer>
         </div>
         <style>
-            @import url('./language-flash-svelte/dist/bundle.css');
+            @import url('/svelte-apps/language-flash/bundle.css');
             .tab {
                 border-radius: 10px 10px 0 0;
                 padding: 10px;
@@ -126,7 +126,8 @@
             }
         </style>
         <script src="./projects.js"></script>
-        <script src="./language-flash-svelte/dist/bundle.js"></script>
+        <!-- svelte apps -->
+        <script src="/svelte-apps/language-flash/bundle.js"></script>
         <script>
             const target = document.getElementById('lang-flash')
             new LanguageFlash({
