@@ -134,24 +134,45 @@ html, body {
     text-align: left;
 }
 
-#contact-form input {
-    width: 40%;
+#contact-form textarea {
+    height: 150px;
 }
 
-#contact-form textarea {
-    height: 80px;
+.contact-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-fields {
+    display: flex;
+}
+
+.contact-child {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 0px;
+    justify-content: space-around;
+}
+
+.contact-child:last-child {
+    margin-left: 25px;
+}
+
+.contact-child:first-child {
+    margin-right: 25px;
 }
 
 #whats-new-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 1;
     border: solid #ccc;
     border-radius: 5px;
     padding: 20px;
     margin: 50px 25px 0 50px;
     text-align: center;
     justify-content: space-between;
+    flex: 1 1 0px;
+    width: 0;
 }
 
 #whats-new {
@@ -171,13 +192,14 @@ html, body {
 #projects-link-wrapper {
     display: flex;
     flex-direction: column;
-    flex: 1 1;
     border: solid #ccc;
     border-radius: 5px;
     padding: 20px;
     margin: 50px 40px 0 25px;
     text-align: center;
     justify-content: space-between;
+    flex: 1 1 0px;
+    width: 0;
 }
 
 #top-right-wrapper {
@@ -188,7 +210,8 @@ div h4 {
     margin-top: 0;
 }
 
-.app-description, #react-cube-solver {
+.app-description, .app-demo {
     max-height: calc(100vh - 270px);
+    height: 100vh;
     overflow: auto;
 }
