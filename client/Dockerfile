@@ -57,10 +57,10 @@ COPY --from=rraBuilder /app/meDotCom-react-resume/build/static /etc/nginx/html/r
 # all apps
 FROM server as allServer
 # language-flash
-COPY --from=lsBuilder /app/meDotCom-language-flash/dist /etc/nginx/html/svelte-apps/language-flash/
+COPY --from=lfBuilder /app/meDotCom-language-flash/dist /etc/nginx/html/svelte-apps/language-flash/
 # home react apps
-COPY --from=rhaBuilder /app/meDotCom-react-home/build/static /etc/nginx/html/react-apps/home/
+COPY --from=hraBuilder /app/meDotCom-react-home/build/static /etc/nginx/html/react-apps/home/
 # projects react apps
-COPY --from=rpaBuilder /app/meDotCom-react-projects/build/static /etc/nginx/html/react-apps/projects/
+COPY --from=praBuilder /app/meDotCom-react-projects/build/static /etc/nginx/html/react-apps/projects/
 # resume react app
 COPY --from=rraBuilder /app/meDotCom-react-resume/build/static /etc/nginx/html/react-apps/resume/
