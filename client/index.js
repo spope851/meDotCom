@@ -19,6 +19,6 @@ window.onload = function() {
 
 const projectsLinkBtn = document.getElementById('projects-link-btn')
 
-projectsLinkBtn.addEventListener('click', () => window.location.pathname = '/projects')
+projectsLinkBtn.addEventListener('click', () => window.location.href = '/projects/#language-flash')
 projectsLinkBtn.addEventListener('mouseover', () => projectsLinkBtn.classList.add('tweet-hover'))
 projectsLinkBtn.addEventListener('mouseleave', () => projectsLinkBtn.classList.remove('tweet-hover'))
