@@ -89,16 +89,12 @@ nav .active {
         display: block;
     }
     
-    #nav-header {
+    #nav-header, #copyright, thead {
         display: none;
     }
 
     nav li:first-child a {
         padding: 4.5px 16px;
-    }
-
-    #copyright {
-        display: none;
     }
 
     .contact-fields, .contact-form {
@@ -134,6 +130,20 @@ nav .active {
 
     #whats-new, #projects-link-btn {
         margin: 0px !important;
+    }
+
+    td {
+        display: table-row !important;
+    }
+
+    .app-description, .app-demo {
+        max-width: calc(100vw - 25px) !important;
+        max-height: unset !important;
+        height: unset !important;
+    }
+
+    .content {
+        margin-bottom: 95px !important;
     }
 }
 
@@ -308,4 +318,12 @@ div h4 {
     max-height: calc(100vh - 270px);
     height: 100vh;
     overflow: auto;
+}
+
+.app-demo {
+    max-width: calc(75vw - 35px);
+}
+
+.app-description {
+    max-width: calc(25vw - 35px);
 }

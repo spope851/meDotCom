@@ -16,8 +16,8 @@ services:
       context: ./client
     ports:
       - "80:80"
-    volumes:
-      - ./client:/etc/nginx/html
+    # volumes:
+    #   - ./client:/etc/nginx/html
   api:
     depends_on:
       - database
