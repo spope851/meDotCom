@@ -146,8 +146,14 @@ nav .active {
         height: unset !important;
     }
 
-    .content {
+    .content, #resume-root {
         margin-bottom: 95px !important;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #resume-root {
+        margin-bottom: 195px !important;
     }
 }
 
