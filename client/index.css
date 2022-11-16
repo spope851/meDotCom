@@ -346,3 +346,7 @@ div h4 {
     width: -webkit-fill-available;
     margin: 10px;
 }
+
+#resume-root div.MuiBox-root:first-child {
+    height: calc(100% - 49px);
+}

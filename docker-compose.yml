@@ -14,7 +14,7 @@ services:
     build:
       dockerfile: Dockerfile
       context: ./client
-      # target: rraServer
+      target: allServer
     ports:
       - "80:80"
     # volumes:
