@@ -8,6 +8,7 @@ services:
       - "5438:5432"
     volumes: 
     - ./postgres-data:/var/lib/postgresql/data
+    restart: always
   client:
     depends_on:
       - api
@@ -17,6 +18,7 @@ services:
       target: allServer
     ports:
       - "80:80"
+    restart: always
     # volumes:
     #   - ./client:/etc/nginx/html
   api:
@@ -34,3 +36,4 @@ services:
       - PGDATABASE=postgres
       - PGPASSWORD=postgres_password
       - PGPORT=5432
+    restart: always
