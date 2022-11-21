@@ -1,7 +1,7 @@
 FROM node:alpine as builder
 RUN apk --no-cache add git
 
-FROM nginx as server
+FROM nginx:alpine as server
 EXPOSE 80
 COPY . /etc/nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
