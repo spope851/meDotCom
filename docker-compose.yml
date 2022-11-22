@@ -2,6 +2,7 @@ version: "3"
 services:
   database:
     image: spope5/medotcom-db:0.0.1
+    container_name: db
     # build: 
     #   dockerfile: Dockerfile
     #   context: ./database
@@ -16,6 +17,7 @@ services:
     restart: always
   client:
     image: spope5/medotcom-client:0.0.1
+    container_name: client
     depends_on:
       - api
     # build:
@@ -29,6 +31,7 @@ services:
     #   - ./client:/etc/nginx/html
   api:
     image: spope5/medotcom-api:latest
+    container_name: server
     depends_on:
       - database
     # build:
