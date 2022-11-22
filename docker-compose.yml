@@ -5,6 +5,10 @@ services:
     # build: 
     #   dockerfile: Dockerfile
     #   context: ./database
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
     ports:
       - "5438:5432"
     volumes: 
@@ -24,7 +28,7 @@ services:
     # volumes:
     #   - ./client:/etc/nginx/html
   api:
-    image: spope5/medotcom-api:0.0.1
+    image: spope5/medotcom-api:latest
     depends_on:
       - database
     # build:
@@ -34,10 +38,10 @@ services:
       - /app/node_modules
       - ./server:/app
     environment:
-      - PGUSER=postgres
-      - PGHOST=database
-      - PGDATABASE=postgres
-      - PGPASSWORD=postgres_password
-      - PGPORT=5432
-      - TWITTER_BEARER=AAAAAAAAAAAAAAAAAAAAADj0RAEAAAAANbcQ43Jw27zlY4Hi6He4V7tVPNM%3DH0xIrAUbqSoihIZOuOpzMBatzgZ0JcgziECnosFmqIlcWr8Ycd
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+      - PGHOST
+      - PGPORT
+      - TWITTER_BEARER
     restart: always
