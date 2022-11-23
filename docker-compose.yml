@@ -16,7 +16,7 @@ services:
     - ./postgres-data:/var/lib/postgresql/data
     restart: always
   client:
-    image: spope5/medotcom-client:0.0.1
+    image: spope5/medotcom-client:latest
     container_name: client
     depends_on:
       - api
