@@ -3,30 +3,30 @@ services:
   database:
     image: spope5/medotcom-db:0.0.1
     container_name: db
-    # build: 
-    #   dockerfile: Dockerfile
-    #   context: ./database
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB
     ports:
       - "5438:5432"
+    restart: always
     volumes: 
     - ./postgres-data:/var/lib/postgresql/data
-    restart: always
+    # build: 
+    #   dockerfile: Dockerfile
+    #   context: ./database
   client:
     image: spope5/medotcom-client:latest
     container_name: client
     depends_on:
       - api
+    ports:
+      - "80:80"
+    restart: always
     # build:
     #   dockerfile: Dockerfile
     #   context: ./client
     #   target: allServer
-    ports:
-      - "80:80"
-    restart: always
     # volumes:
     #   - ./client:/etc/nginx/html
   api:
@@ -34,12 +34,6 @@ services:
     container_name: server
     depends_on:
       - database
-    # build:
-    #   dockerfile: Dockerfile
-    #   context: "./server"
-    volumes:
-      - /app/node_modules
-      - ./server:/app
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -48,3 +42,8 @@ services:
       - PGPORT
       - TWITTER_BEARER
     restart: always
+    # build:
+    #   dockerfile: Dockerfile
+    #   context: "./server"
+    # volumes:
+    #   - ./server:/app

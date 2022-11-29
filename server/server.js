@@ -5,6 +5,7 @@ import * as keys from './keys.js';
 import pkg from 'pg';
 delete pkg.native;
 const { Pool } = pkg;
+import Cube from 'cubejs';
 
 const pool = new Pool({
   user: keys.pgUser,
@@ -13,6 +14,14 @@ const pool = new Pool({
   password: keys.pgPassword,
   port: keys.pgPort
 });
+
+app.get('/solveCube', async (req, res) => {
+    console.log('GET cube  ', req.query)
+    const myCube = new Cube(Cube.fromString(req.query.facelets))
+    Cube.initSolver()
+    const solution = myCube.solve();
+    res.status(200).send(solution.split(' '))
+})
 
 app.get('/getContent', async (req, res) => {
     console.log('GET content  ', req.query)
