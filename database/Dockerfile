@@ -14,4 +14,5 @@ FROM postgres:alpine
 ENV POSTGRES_PASSWORD=postgres_password
 COPY ./sql/create_tables.sql /docker-entrypoint-initdb.d/create_tables.sql
 COPY ./sql/insert_content.sql /docker-entrypoint-initdb.d/insert_content.sql
+COPY ./sql/insert_truths.sql /docker-entrypoint-initdb.d/insert_truths.sql
 COPY --from=scraper /usr/src/app/sql/insert_data.sql /docker-entrypoint-initdb.d/insert_data.sql
