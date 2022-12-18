@@ -6,3 +6,4 @@ database.ini
 *.js.map
 *.css.map
 *.LICENSE.txt
+*-bundle.*

@@ -142,6 +142,7 @@ nav .active {
 
     .app-description, .app-demo {
         max-width: calc(100vw - 25px) !important;
+        min-width: calc(100vw - 60px);
         max-height: unset !important;
         height: unset !important;
     }

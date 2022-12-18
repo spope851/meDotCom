@@ -22,6 +22,7 @@
             </header>
             <div class="content">
                 <div class="tabs">
+                    <button id="two-truths-btn" class="tab">two-truths</button>
                     <button id="language-flash-btn" class="tab">language-flash</button>
                     <button id="cube-solver-btn" class="tab">cube-solver</button>
                 </div>
@@ -33,6 +34,35 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr id="two-truths">
+                            <td>
+                                <ul class="app-description">
+                                    <li>description: two truths and a lie app</li>
+                                    <ul>
+                                        <li>choose the two you think are true</li>
+                                        <li>replay button resets the game with new values laksjd lfkjasd lfkjasd lfkjas dlkfjas ldkfjas ldkfjas adfasdl</li>
+                                        <ul>
+                                            <li>pass in your own data through props</li>
+                                        </ul>
+                                    </ul>
+                                    <li><a href="https://www.npmjs.com/package/two-truths" target="_blank" rel="noreferrer">npm</a></li>
+                                    <li><a href="https://github.com/spope851/two-truths" target="_blank" rel="noreferrer">github</a></li>
+                                    <li>architecture:</li>
+                                    <ul>
+                                        <li><strong>data</strong>: personal truths and lies recorded <a href="https://github.com/spope851/meDotCom/blob/main/database/sql/insert_truths.sql" target="_blank" rel="noreferrer">here</a></li>
+                                        <ul>
+                                            <li>integration through the following <a href="https://github.com/spope851/meDotCom/blob/main/database/Dockerfile" target="_blank" rel="noreferrer">docker image</a></li>
+                                        </ul>
+                                        <li><strong>storage</strong>: <a href="https://www.postgresql.org/" target="_blank" rel="noreferrer">postgres</a></li>
+                                        <li><strong>backend</strong>: <a href="https://nodejs.org/en/" target="_blank" rel="noreferrer">node</a></li>
+                                        <li><strong>ui</strong>: <a href="https://svelte.dev" target="_blank" rel="noreferrer">svelte</a></li>
+                                    </ul>
+                                </ul>
+                            </td>
+                            <td>
+                                <div id="two-truths-demo" class="app-demo"></div>
+                            </td>
+                        </tr>
                         <tr id="language-flash">
                             <td>
                                 <ul class="app-description">
@@ -104,12 +134,14 @@
                     <li><a href="https://twitter.com/s_pop3" target="_blank" rel="noreferrer"><img src="/assets/images/twitter.svg" alt="twitter"/></a></li>
                     <li><a href="https://www.youtube.com/@spope" target="_blank" rel="noreferrer"><img src="/assets/images/youtube.svg" alt="youtube"/></a></li>
                     <li><a href="https://www.introspective20s.com" target="_blank" rel="noreferrer"><img src="/assets/images/wordpress.svg" alt="blog"/></a></li>
+                    <li><a href="https://www.twitch.tv/spenpo" target="_blank" rel="noreferrer"><img src="/assets/images/twitch.svg" alt="blog"/></a></li>
                 </ul>
                 <div id="copyright"><span>© 2022 Spencer Pope</span></div>
             </footer>
         </div>
         <style>
-            @import url('/svelte-apps/language-flash/bundle.css');
+            @import url('/svelte-apps/two-truths-bundle.css');
+            @import url('/svelte-apps/lang-flash-bundle.css');
             .tab {
                 border-radius: 10px 10px 0px 0px;
                 padding: 10px;
@@ -135,11 +167,18 @@
         </style>
         <script src="./projects.js"></script>
         <!-- svelte apps -->
-        <script src="/svelte-apps/language-flash/bundle.js"></script>
+        <script src="/svelte-apps/two-truths-bundle.js"></script>
         <script>
-            const target = document.getElementById('lang-flash')
+            const ttTarget = document.getElementById('two-truths-demo')
+            new TwoTruths({
+                target: ttTarget
+            })
+        </script>
+        <script src="/svelte-apps/lang-flash-bundle.js"></script>
+        <script>
+            const lfTarget = document.getElementById('lang-flash')
             new LanguageFlash({
-                target
+                target: lfTarget
             })
         </script>
         <!-- react apps -->
