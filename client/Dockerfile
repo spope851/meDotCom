@@ -6,17 +6,17 @@ EXPOSE 80
 COPY . /etc/nginx/html
 COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
 
-# language-flash
-FROM builder as lfBuilder
+# svelte apps
+FROM builder as svelteBuilder
 WORKDIR /app
-RUN git clone https://github.com/spope851/meDotCom-language-flash.git
-WORKDIR /app/meDotCom-language-flash
+RUN git clone https://github.com/spope851/meDotCom-svelte-apps.git
+WORKDIR /app/meDotCom-svelte-apps
 RUN npm i
 RUN npm run build
 WORKDIR /app
 COPY . .
-FROM server as lfServer
-COPY --from=lfBuilder /app/meDotCom-language-flash/dist /etc/nginx/html/svelte-apps/language-flash/
+FROM server as svelteServer
+COPY --from=svelteBuilder /app/meDotCom-svelte-apps/dist /etc/nginx/html/svelte-apps/
 
 # home react apps
 FROM builder as hraBuilder
@@ -56,8 +56,8 @@ COPY --from=rraBuilder /app/meDotCom-react-resume/build/static /etc/nginx/html/r
 
 # all apps
 FROM server as allServer
-# language-flash
-COPY --from=lfBuilder /app/meDotCom-language-flash/dist /etc/nginx/html/svelte-apps/language-flash/
+# svelte apps
+COPY --from=svelteBuilder /app/meDotCom-svelte-apps/dist /etc/nginx/html/svelte-apps/
 # home react apps
 COPY --from=hraBuilder /app/meDotCom-react-home/build/static /etc/nginx/html/react-apps/home/
 # projects react apps

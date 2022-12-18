@@ -15,4 +15,5 @@ WORKDIR /app
 # copy from build image
 COPY --from=builder /app/server.js /app/keys.js /app/package.json /app/yarn.lock ./
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/utils ./utils
 CMD ["npm", "run", "dev"]

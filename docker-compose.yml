@@ -1,14 +1,14 @@
 version: "3"
 services:
   database:
-    image: spope5/medotcom-db:0.0.1
+    image: spope5/medotcom-db:latest
     container_name: db
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB
     ports:
-      - "5438:5432"
+      - "5438:${PGPORT}"
     restart: always
     volumes: 
     - ./postgres-data:/var/lib/postgresql/data
@@ -26,7 +26,7 @@ services:
     # build:
     #   dockerfile: Dockerfile
     #   context: ./client
-    #   target: allServer
+    #   target: svelteServer
     # volumes:
     #   - ./client:/etc/nginx/html
   api:
@@ -38,7 +38,6 @@ services:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
       - POSTGRES_DB
-      - PGHOST
       - PGPORT
       - TWITTER_BEARER
     restart: always

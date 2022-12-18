@@ -1,19 +1,18 @@
 import express from 'express';
 const app = express()
 import fetch from 'node-fetch';
-import * as keys from './keys.js';
-import pkg from 'pg';
-delete pkg.native;
-const { Pool } = pkg;
 import Cube from 'cubejs';
+import { shuffle } from './utils/shuffle.js';
+import { pool } from './utils/postgres.js';
 
-const pool = new Pool({
-  user: keys.pgUser,
-  host: keys.pgHost,
-  database: keys.pgDatabase,
-  password: keys.pgPassword,
-  port: keys.pgPort
-});
+app.get('/getTruths', async (req, res) => {
+    console.log('GET truths  ', req.query)
+    const truths = await pool.query(`SELECT * FROM truths WHERE is_true = CAST(1 as BIT) ORDER BY random() LIMIT 2;`)
+    const lie = await pool.query(`SELECT * FROM truths WHERE is_true != CAST(1 as BIT) ORDER BY random() LIMIT 1;`)
+    const twoTruths = truths.rows
+    twoTruths.push(lie.rows[0])
+    res.status(200).send(shuffle(twoTruths))
+})
 
 app.get('/solveCube', async (req, res) => {
     console.log('GET cube  ', req.query)

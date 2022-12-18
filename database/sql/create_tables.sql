@@ -13,3 +13,9 @@ create table if not exists content (
     domain varchar (255) not null,
     summary varchar (2048) not null
 );
+
+create table if not exists truths (
+    id serial primary key,
+    sentence varchar (2048) not null,
+    is_true bit not null
+);
