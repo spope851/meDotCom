@@ -136,15 +136,19 @@ nav .active {
         margin: 0px !important;
     }
 
-    td {
-        display: table-row !important;
+    .projects-table-data {
+        display: flex !important;
+        justify-content: stretch;
     }
 
     .app-description, .app-demo {
         max-width: calc(100vw - 25px) !important;
-        min-width: calc(100vw - 60px);
         max-height: unset !important;
         height: unset !important;
+    }
+
+    .app-demo {
+        width: 100%;
     }
 
     .content, #resume-root {
