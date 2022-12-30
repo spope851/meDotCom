@@ -24,7 +24,8 @@
                 <div class="tabs">
                     <button id="two-truths-btn" class="tab">two-truths</button>
                     <button id="language-flash-btn" class="tab">language-flash</button>
-                    <button id="cube-solver-btn" class="tab">cube-solver</button>
+                    <button id="3x3-cube-btn" class="tab">3x3-cube</button>
+                    <button id="react-timeclock-btn" class="tab">react-timeclock</button>
                 </div>
                 <table border="2">
                     <thead>
@@ -34,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr id="two-truths">
+                        <tr id="two-truths" class="projects-row">
                             <td class="projects-table-data">
                                 <ul class="app-description">
                                     <li>description: two truths and a lie app</li>
@@ -63,7 +64,7 @@
                                 <div id="two-truths-demo" class="app-demo"></div>
                             </td>
                         </tr>
-                        <tr id="language-flash">
+                        <tr id="language-flash" class="projects-row">
                             <td class="projects-table-data">
                                 <ul class="app-description">
                                     <li>description: flashcards for studying a new language</li>
@@ -94,7 +95,7 @@
                                 <div id="lang-flash" class="app-demo"></div>
                             </td>
                         </tr>
-                        <tr id="cube-solver">
+                        <tr id="3x3-cube" class="projects-row">
                             <td class="projects-table-data">
                                 <ul class="app-description">
                                     <li>description: solve a 3x3 puzzle cube</li>
@@ -118,11 +119,42 @@
                                             <li>get a <a href="https://www.npmjs.com/package/cubejs#cubefromstringstr" target="_blank" rel="noreferrer">string of current facelets</a> from <code>getFacelets()</code> exported module</li>
                                         </ul>
                                     </ul>
-                                    <li>next steps: add support for 4x4, 5x5, etc.</li>
+                                    <li>next steps:</li>
+                                    <ul>
+                                        <li>add proper error handline</li>
+                                        <li>develop my own backend solve function</li>
+                                    </ul>
                                 </ul>
                             </td>
                             <td class="projects-table-data">
-                                <div id="react-cube-solver" class="app-demo"></div>
+                                <div id="3x3-cube-demo" class="app-demo"></div>
+                            </td>
+                        </tr>
+                        <tr id="react-timeclock" class="projects-row">
+                            <td class="projects-table-data">
+                                <ul class="app-description">
+                                    <li>description: timeclock component for tracking work done on a website</li>
+                                    <ul>
+                                        <li>clock in/out when working on your site and record what you've done</li>
+                                        <li>add to a site during development to easily track how long you've worked</li>
+                                    </ul>
+                                    <li><a href="https://www.npmjs.com/package/react-timeclock" target="_blank" rel="noreferrer">npm</a></li>
+                                    <li><a href="https://github.com/spope851/react-timeclock" target="_blank" rel="noreferrer">github</a></li>
+                                    <li>architecture:</li>
+                                    <ul>
+                                        <li><strong>storage</strong>: <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage" target="_blank" rel="noreferrer">local storage</a></li>
+                                        <li><strong>ui</strong>: <a href="https://reactjs.org" target="_blank" rel="noreferrer">react</a></li>
+                                    </ul>
+                                    <li>next steps:</li>
+                                    <ul>
+                                        <li>allow user to store their data and pass in via props</li>
+                                        <li>display weekly/monthly totals and averages in hours</li>
+                                        <li>allow user to export their data</li>
+                                    </ul>
+                                </ul>
+                            </td>
+                            <td class="projects-table-data">
+                                <div id="react-timeclock-demo" class="app-demo"></div>
                             </td>
                         </tr>
                     </tbody>
@@ -163,6 +195,15 @@
             }
             button.active {
                 background-color: #ccc;
+            }
+            #react-timeclock-demo {
+                max-width: unset;
+            }
+            #react-timeclock-demo table {
+                width: unset;
+            }
+            #react-timeclock-demo td:first-child {
+                display: table-cell;
             }
         </style>
         <script src="./projects.js"></script>
